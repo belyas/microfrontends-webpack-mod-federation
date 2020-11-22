@@ -1,0 +1,22 @@
+{
+  "name": "@yb/cart",
+  "version": "1.0.0",
+  "description": "Cart micro frontend",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-cli serve",
+    "build": "webpack --config ./webpack.prod.js",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "webpack",
+    "microfrontends",
+    "module-federation"
+  ],
+  "author": "Yassine Belkaid <yassine.belkaid87@gmail.com>",
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
