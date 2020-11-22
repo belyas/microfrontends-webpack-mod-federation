@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const { ModuleFederationPlugin } = require('webpack').container;
+// const deps = require('./package.json').dependencies;
 
 module.exports = {
   mode: "development",
@@ -20,7 +21,8 @@ module.exports = {
     //       shareKey: "react",
     //       shareScope: "default",
     //       singleton: true,
-    //     },
+          // version: deps.react,
+          //     },
     //     "react-dom": {
     //       singleton: true,
     //     },

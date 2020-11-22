@@ -1,33 +1,14 @@
+import ReactDOM from 'react-dom';
+import App from './App';
+import { createProducts, formatPrice } from './utils';
+
 window.avaialableProducts = [];
-
-const loadProductsFromJson = async () => {
-  try {
-      const result = await fetch('products.json');
-      const products = await result.json();
-
-      return products;
-  } catch (err) {
-      console.log(err);
-  }
-};
-
-const formatPrice = (price, currency = '$') => {
-  let formattedPrice = price;
-
-  switch (currency) {
-      case '$':
-          formattedPrice = `${currency}${price}`;
-          break;
-  }
-
-  return formattedPrice;
-};
 
 const productGridLayout = product => formatter => {
   return `<article class="product">
       <div class="img-container">
           <img
-              src="/public/${product.image_url}"
+              src="${product.image_url}"
               alt="${product.title}"
               class="product-img"
           />
@@ -49,7 +30,7 @@ const createProductsGrids = async (loadProductsfunc, formatter) => {
   const products = await loadProductsfunc();
   let _html = '';
 
-  products.items.forEach(product => {
+  products.forEach(product => {
       avaialableProducts.push({ ...product, qty: 1 });
       _html += productGridLayout(product)(formatter);
   });
@@ -67,17 +48,10 @@ export const render = (nodeElement) => {
     document.body.appendChild(nodeElement);
   }
 
-  nodeElement.innerHTML = `
-    <section class="products">
-      <div class="section-title">
-          <h2>Latest products</h2>
-      </div>
-      <div id="products-container" class="products-center"></div>
-    </section>
-  `;
-  
+  ReactDOM.render(<App />, nodeElement);
+
   // Display products from json file
-  createProductsGrids(loadProductsFromJson, formatPrice);
+  createProductsGrids(createProducts, formatPrice);
 };
 
 if (process.env.NODE_ENV === 'development') {

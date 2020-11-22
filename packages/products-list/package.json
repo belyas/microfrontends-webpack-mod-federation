@@ -16,6 +16,7 @@
   ],
   "author": "Yassine Belkaid <yassine.belkaid87@gmail.com>",
   "dependencies": {
+    "faker": "^5.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }
