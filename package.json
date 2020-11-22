@@ -10,7 +10,8 @@
   "scripts": {
     "start": "lerna run --scope @yb/* --parallel start",
     "build": "lerna run --scope @yb/* build",
-    "clean": "lerna run --scope @yb/* --parallel clean"
+    "clean": "lerna run --scope @yb/* --parallel clean",
+    "start:prods": "lerna run --scope @yb/products-list start"
   },
   "devDependencies": {
     "@babel/core": "^7.12.7",

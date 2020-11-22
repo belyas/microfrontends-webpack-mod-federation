@@ -5,6 +5,18 @@ const deps = require('./package.json').dependencies;
 
 module.exports = {
   mode: "production",
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+  module: {
+    rules: [
+      {
+        test: /.jsx?$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      },
+    ],
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: 'productsList',
@@ -14,9 +26,6 @@ module.exports = {
       },
       shared: {
         react: {
-          import: "react",
-          shareKey: "react",
-          shareScope: "default",
           singleton: true,
           requiredVersion: deps.react,
         },

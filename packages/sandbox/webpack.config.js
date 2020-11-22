@@ -32,7 +32,7 @@ module.exports = {
           shareKey: "react",
           shareScope: "default",
           singleton: true,
-          requiredVersion: deps.react
+          requiredVersion: deps.react,
         },
         "react-dom": {
           singleton: true,
