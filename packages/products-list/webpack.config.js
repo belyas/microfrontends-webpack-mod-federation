@@ -13,7 +13,18 @@ module.exports = {
       filename: 'bundle.js',
       exposes: {
         './bootstrap': './src/bootstrap'
-      }
+      },
+      shared: {
+        react: {
+          import: "react",
+          shareKey: "react",
+          shareScope: "default",
+          singleton: true,
+        },
+        "react-dom": {
+          singleton: true,
+        },
+      },
     }),
     new HtmlWebpackPlugin({
       template: resolve('public', 'index.html'),

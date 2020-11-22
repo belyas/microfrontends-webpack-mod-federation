@@ -24,7 +24,18 @@ module.exports = {
       name: 'sandbox',
       remotes: {
         products: 'productsList@http://localhost:3001/bundle.js'
-      }
+      },
+      shared: {
+        react: {
+          import: "react",
+          shareKey: "react",
+          shareScope: "default",
+          singleton: true,
+        },
+        "react-dom": {
+          singleton: true,
+        },
+      },
     }),
     new HtmlWebpackPlugin({
       template: resolve('public', 'index.html'),

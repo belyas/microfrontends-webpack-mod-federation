@@ -10,8 +10,7 @@
   "scripts": {
     "start": "lerna run --scope @yb/* --parallel start",
     "build": "lerna run --scope @yb/* build",
-    "clean": "lerna run --scope @yb/* --parallel clean",
-    "init": "lerna init"
+    "clean": "lerna run --scope @yb/* --parallel clean"
   },
   "devDependencies": {
     "@babel/core": "^7.12.7",
@@ -19,9 +18,9 @@
     "babel-loader": "^8.2.1",
     "html-webpack-plugin": "^4.5.0",
     "lerna": "^3.22.1",
+    "rimraf": "^3.0.2",
     "webpack": "^5.3.2",
     "webpack-cli": "^4.1.0",
     "webpack-dev-server": "^3.11.0"
-  },
-  "dependencies": {}
+  }
 }
